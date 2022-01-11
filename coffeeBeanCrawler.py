@@ -45,10 +45,10 @@ def CoffeeBean_store(result):
 def main():
     result = []
     print('CoffeeBean store crawling >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-    CoffeeBean_store(result)    # [CODE 1] : 동적 웹 크롤링 실행
+    CoffeeBean_store(result)    # [CODE 1] : 동적 웹 크롤링 실행 -> result 리스트에 추가 저장
 
-    CB_tbl = pd.DataFrame(result, columns=('store', 'address', 'phone'))
-    CB_tbl.to_csv('./data/CoffeeBean.csv', encoding='cp949', mode='w', index=True)
+    CB_tbl = pd.DataFrame(result, columns=('store', 'address', 'phone'))                # 크롤링한 데이터를 2차원 배열 형식인 DataFrame 형식으로 저장
+    CB_tbl.to_csv('./data/CoffeeBean.csv', encoding='cp949', mode='w', index=True)      # DataFrame을 csv 파일로 저장
 
 # 메인함수 실행
 if __name__ == '__main__':
