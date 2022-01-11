@@ -30,12 +30,12 @@ def CoffeeBean_store(result):
             store_name = store_name_h2[0].string
             print(store_name)                                           # 매장이름 출력하기
 
-            store_info = soupCB.select("div.store_txt > table.store_table > tbody > tr > td")
+            store_info = soupCB.select("div.store_txt > table.store_table > tbody > tr > td")       # 매장 정보 저장
             store_address_list = list(store_info[2])
-            store_address = store_address_list[0]
-            store_phone = store_info[3].string
+            store_address = store_address_list[0]                                                   # 매장 정보 - 주소 저장
+            store_phone = store_info[3].string                                                      # 매장 정보 - 전화번호 저장
 
-            result.append([store_name] + [store_address] + [store_phone])
+            result.append([store_name] + [store_address] + [store_phone])                           # 매장정보를 결과 리스트에 추가 저장
         except:
             continue
 
