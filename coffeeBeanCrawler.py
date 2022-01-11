@@ -15,14 +15,13 @@ import time
 # [CODE 1] : 동적 웹페이지인 커피빈코리아에 대한 동적 웹 페이지 크롤링을 실행하여 결과값을 리스트에 추가하는 함수
 def CoffeeBean_store(result):
     CoffeeBean_URL = "https://www.coffeebeankorea.com/store/store.asp"      # 커피빈코리아의 매장찾기 페이지
-    wd = webdriver.Chrome('./WebDriver/chromedriver.exe')       # 크롬 WebDriver 객체 생성
+    wd = webdriver.Chrome('./WebDriver/chromedriver.exe')                   # 크롬 WebDriver 객체 생성
 
     # 2022.01.11. : 1 ~ 가장 최근 매장 번호 374까지 반복
     for i in range(1, 375):
         wd.get(CoffeeBean_URL)                                      # Selenium이 제어하는 크롬 창에서 웹 페이지 연결
         time.sleep(1)                                               # *** 웹 페이지 연결할 동안 1초 대기 : 생략할 경우 연결하기 전의 소스코드가 저장
         try :
-
             wd.execute_script("storePop2(%d)" %i)                       # 자바스크립트 함수 호출해 매장 정보 페이지 열기
             time.sleep(1)                                               # *** 웹 페이지 연결할 동안 1초 대기 : 생략할 경우 연결하기 전의 소스코드가 저장
             html = wd.page_source                                       # 자바스크립트 함수가 수행된 페이지의 소스 코드 저장
